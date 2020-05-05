@@ -21,4 +21,9 @@ public class AccountServiceImpl implements IAccountService {
         List<Account> accounts=accountDao.getAllAccount();
         return accounts;
     }
+
+    @Override
+    public void deleteAccount(int id) {
+        accountDao.deleteAccount(id);
+    }
 }

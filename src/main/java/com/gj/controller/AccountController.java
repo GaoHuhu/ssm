@@ -30,4 +30,10 @@ public class AccountController {
         accountService.saveAccount(account);
         response.sendRedirect(request.getContextPath()+"/account/findAll");
     }
+
+    @RequestMapping("/deleteAccount")
+    public void saveAccount(int id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        accountService.deleteAccount(id);
+        response.sendRedirect(request.getContextPath()+"/account/findAll");
+    }
 }

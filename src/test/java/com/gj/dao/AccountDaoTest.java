@@ -1,24 +1,28 @@
 package com.gj.dao;
 
 import com.gj.domain.Account;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
 public class AccountDaoTest {
+    @Autowired
+    private IAccountDao accountDao;
     @Test
-    public void findAllTest() throws IOException {
-        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
-        SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession=factory.openSession();
-        IAccountDao dao=sqlSession.getMapper(IAccountDao.class);
-        List<Account> allAccount = dao.getAllAccount();
+    public void findAllTest()  {
+
+//        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+//        SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(resourceAsStream);
+//        SqlSession sqlSession=factory.openSession();
+//        IAccountDao dao=sqlSession.getMapper(IAccountDao.class);
+        List<Account> allAccount = accountDao.getAllAccount();
 
         for(Account account:allAccount){
             System.out.println(account);
@@ -28,14 +32,14 @@ public class AccountDaoTest {
 
     @Test
     public void saveAccountTest() throws IOException {
-        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
-        SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession=factory.openSession();
-        IAccountDao dao=sqlSession.getMapper(IAccountDao.class);
+//        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+//        SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(resourceAsStream);
+//        SqlSession sqlSession=factory.openSession();
+//        IAccountDao dao=sqlSession.getMapper(IAccountDao.class);
         Account account=new Account();
         account.setMoney(55);
         account.setName("jack");
-        dao.saveAccount(account);
-        sqlSession.commit();
+        accountDao.saveAccount(account);
+        //sqlSession.commit();
     }
 }
