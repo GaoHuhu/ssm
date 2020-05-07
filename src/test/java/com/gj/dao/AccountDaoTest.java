@@ -16,7 +16,7 @@ public class AccountDaoTest {
     @Autowired
     private IAccountDao accountDao;
     @Test
-    public void findAllTest()  {
+    public void findAllTest() throws Exception {
 
 //        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
 //        SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(resourceAsStream);

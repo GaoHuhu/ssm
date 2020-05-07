@@ -7,7 +7,7 @@ import java.util.List;
 public interface IAccountService {
     void saveAccount(Account account);
 
-    List<Account> getAllAccount();
+    List<Account> getAllAccount() throws Exception;
 
     void deleteAccount(int id);
 }

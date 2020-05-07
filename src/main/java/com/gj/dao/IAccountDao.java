@@ -14,7 +14,7 @@ public interface IAccountDao {
     void saveAccount(Account account);
 
     @Select("select * from account")
-    List<Account> getAllAccount();
+    List<Account> getAllAccount() throws Exception;
 
     @Delete("delete from account where id=#{id}")
     void deleteAccount(int id);

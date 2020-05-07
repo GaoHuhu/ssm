@@ -22,6 +22,8 @@
         <property name="jdbcUrl" value="jdbc:mysql://mysql/ssm?useUnicode=true&amp;characterEncoding=utf-8"></property>
         <property name="user" value="root"></property>
         <property name="password" value="root"></property>
+        <property name="loginTimeout" value="5"></property>
+        <property name="checkoutTimeout" value="5000"></property>
     </bean>
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">

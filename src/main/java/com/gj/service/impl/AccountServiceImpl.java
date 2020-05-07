@@ -17,7 +17,7 @@ public class AccountServiceImpl implements IAccountService {
         accountDao.saveAccount(account);
     }
 
-    public List<Account> getAllAccount() {
+    public List<Account> getAllAccount() throws Exception {
         List<Account> accounts=accountDao.getAllAccount();
         return accounts;
     }

@@ -24,5 +24,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
 
+    <!--异常处理-->
+    <bean id="sysExceptionResolver" class="com.gj.exception.SysExceptionResolver"></bean>
+
     <mvc:annotation-driven></mvc:annotation-driven>
 </beans>

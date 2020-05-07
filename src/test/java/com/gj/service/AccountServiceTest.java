@@ -15,7 +15,7 @@ public class AccountServiceTest {
     @Autowired
     private IAccountService accountService;
     @Test
-    public void getAllAccountTest(){
+    public void getAllAccountTest() throws Exception {
         List<Account> allAccount = accountService.getAllAccount();
         for(Account account:allAccount){
             System.out.println(account);
