@@ -17,17 +17,32 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <bean id="comboPooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://mysql/ssm?useUnicode=true&amp;characterEncoding=utf-8"></property>
-        <property name="user" value="root"></property>
+    <!--数据源-->
+    <!--    <bean id="comboPooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+            <property name="jdbcUrl" value="jdbc:mysql://mysql/ssm?useUnicode=true&amp;characterEncoding=utf-8"></property>
+            <property name="user" value="root"></property>
+            <property name="password" value="root"></property>
+            <property name="loginTimeout" value="5"></property>
+            <property name="checkoutTimeout" value="5000"></property>
+        </bean>-->
+
+    <!--    <bean id="basicDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+            <property name="url" value="jdbc:mysql://mysql/ssm?useUnicode=true&amp;characterEncoding=utf-8"></property>
+            <property name="username" value="root"></property>
+            <property name="password" value="root"></property>
+        </bean>-->
+
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://mysql/ssm?useUnicode=true&amp;characterEncoding=utf-8"></property>
+        <property name="username" value="root"></property>
         <property name="password" value="root"></property>
-        <property name="loginTimeout" value="5"></property>
-        <property name="checkoutTimeout" value="5000"></property>
     </bean>
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="comboPooledDataSource"></property>
+        <property name="dataSource" ref="druidDataSource"></property>
     </bean>
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -35,7 +50,7 @@
     </bean>
 
     <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="comboPooledDataSource">
+        <property name="dataSource" ref="druidDataSource">
 
         </property>
     </bean>

@@ -10,4 +10,6 @@ public interface IAccountService {
     List<Account> getAllAccount() throws Exception;
 
     void deleteAccount(int id);
+
+    int getCount();
 }

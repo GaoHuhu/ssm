@@ -26,4 +26,9 @@ public class AccountServiceImpl implements IAccountService {
     public void deleteAccount(int id) {
         accountDao.deleteAccount(id);
     }
+
+    @Override
+    public int getCount() {
+        return accountDao.getCount();
+    }
 }

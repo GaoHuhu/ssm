@@ -52,6 +52,7 @@
         .container .bottom {
             clear: both;
         }
+
         /* tooltip样式 */
 
         [tooltip] {
@@ -108,6 +109,7 @@
         [tooltip][placement^="left"]::before {
             animation: anime-left 300ms ease-out forwards;
         }
+
         /* 气泡主题 */
 
         .tooltip-theme-dark,
@@ -122,6 +124,7 @@
             background-color: #fff;
             border: 1px solid #313131;
         }
+
         /* 气泡位置 */
         /*----上----*/
 
@@ -147,6 +150,7 @@
             left: 0;
             transform: translate(0, 0);
         }
+
         /*----右----*/
 
         .tooltip-placement-right,
@@ -169,6 +173,7 @@
             top: 100%;
             transform: translate(0, -100%);
         }
+
         /*----下----*/
 
         .tooltip-placement-bottom,
@@ -191,6 +196,7 @@
             left: 0;
             transform: translate(0, 0);
         }
+
         /*----左----*/
 
         .tooltip-placement-left,
@@ -213,6 +219,7 @@
             top: 100%;
             transform: translate(0, -100%);
         }
+
         /* 三角形主题 */
 
         .triangle-theme-dark,
@@ -224,6 +231,7 @@
         [tooltip][effect="light"]::before {
             border-top-color: #313131;
         }
+
         /* 三角形位置 */
         /*----上----*/
 
@@ -247,6 +255,7 @@
             bottom: calc(100% + 5px);
             right: 10px;
         }
+
         /*----右----*/
 
         .triangle-placement-right,
@@ -271,6 +280,7 @@
             top: auto;
             transform: translate(0, 0) rotateZ(90deg);
         }
+
         /*----下----*/
 
         .triangle-placement-bottom,
@@ -295,6 +305,7 @@
             right: 10px;
             left: auto;
         }
+
         /*----左----*/
 
         .triangle-placement-left,
@@ -352,6 +363,7 @@
 <body>
 
 <h4>后浪</h4>
+<h4>总条数：${count}</h4>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <a href="${basePath}">首页</a>
 <br>
@@ -369,7 +381,8 @@
             <td>${account.id}</td>
             <td>${account.name}</td>
             <td>${account.money}</td>
-            <td><a class="right" tooltip="${account.name}" placement="right-top" href="${pageContext.request.contextPath}/account/deleteAccount?id=${account.id}">删除</a></td>
+            <td><a class="right" tooltip="${account.name}" placement="right-top"
+                   href="${pageContext.request.contextPath}/account/deleteAccount?id=${account.id}">删除</a></td>
         </tr>
     </c:forEach>
 </table>

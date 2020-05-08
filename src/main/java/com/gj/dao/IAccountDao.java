@@ -18,4 +18,7 @@ public interface IAccountDao {
 
     @Delete("delete from account where id=#{id}")
     void deleteAccount(int id);
+
+    @Select("select count(1) from account")
+    int getCount();
 }

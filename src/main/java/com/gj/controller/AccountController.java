@@ -26,6 +26,9 @@ public class AccountController {
         try {
             List<Account> list = accountService.getAllAccount();
             model.addAttribute("users", list);
+
+            int count = accountService.getCount();
+            model.addAttribute("count",count);
             return "list";
         } catch (Exception e) {
             logger.error("find all error", e);
